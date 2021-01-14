@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const User = mongoose.model('User');
+const User = mongoose.model('user');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
@@ -34,8 +34,6 @@ module.exports = function () {
                     });
                 }
                 if (!bcrypt.compareSync(password, user.password)) {
-                    console.log(password);
-                    console.log(user.password);
                     return done(null, false, {
                         message: 'Unknown user or invalid password'
                     });

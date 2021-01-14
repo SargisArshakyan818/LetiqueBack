@@ -1,10 +1,9 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 let passport = require('passport');
-const User = mongoose.model('User');
 const jwt = require('jsonwebtoken');
-const fs = require('fs');
+// const fs = require('fs');
 // let db = mongoose.connection;
-let local = require('passport-local');
+// let local = require('passport-local');
 const initializePassport = require('../passport');
 initializePassport(passport);
 exports.login = function (req, res, next) {

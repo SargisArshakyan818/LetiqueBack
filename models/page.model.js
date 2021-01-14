@@ -4,6 +4,15 @@ let pageSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    Description: {
+      type: String,
+    },
+    Usage: {
+      type: String,
+    },
+    Contraindications: {
+      type: String,
+    },
     Weight: {
         type: String,
     },
@@ -14,7 +23,17 @@ let pageSchema = new mongoose.Schema({
     Image: {
       type: String,
       required: true,
+    },
+    SoldOut: {
+      type: Boolean,
+    },
+    Type: {
+        type: String,
+        required: true,
+    },
+    Count: {
+        type: Number,
     }
 
 });
-mongoose.model('fruits', pageSchema);
+mongoose.model('items', pageSchema);

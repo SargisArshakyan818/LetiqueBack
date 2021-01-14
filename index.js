@@ -1,14 +1,17 @@
 require('./models/user.model');
+const {View} = require("grandjs");
+View.settings.set("views", "./views");
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const connectionString = "mongodb+srv://Letique2021:LetiqueDB2021@cluster0.4zuao.mongodb.net/test";
 let passport = require('passport');
 // const formidableMiddleware = require('express-formidable');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+ 
 app.use(cors());
 // app.use(formidableMiddleware());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,14 +28,13 @@ require('./models/user.model');
 require('./routes/page.route')(app);
 require('./routes/user.route')(app);
 //Set up default mongoose connection
-let mongoDB = 'mongodb://127.0.0.1/FruitDB';
-mongoose.connect(mongoDB,  {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
+// let mongoDB = 'mongodb://127.0.0.1/LetiqueDB';
+mongoose.connect(connectionString,  {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 //Get the default connection
 let db = mongoose.connection;
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
 'use strict';
 
 // var os = require('os');
@@ -72,26 +74,26 @@ var server = http.createServer(app);
 var os = require('os');
 var ifaces = os.networkInterfaces();
 var ip;
-// Object.keys(ifaces).forEach(function (ifname) {
-//   var alias = 0;
-//   ifaces[ifname].forEach(function (iface) {
-//     if ('IPv4' !== iface.family || iface.internal !== false) {
-//       // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
-//       return;
-//     }
+Object.keys(ifaces).forEach(function (ifname) {
+  var alias = 0;
+  ifaces[ifname].forEach(function (iface) {
+    if ('IPv4' !== iface.family || iface.internal !== false) {
+      // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
+      return;
+    }
 
-//     if (alias >= 1) {
-//       // this single interface has multiple ipv4 addresses
-//       console.log(ifname + ':' + alias, iface.address);
-//     } else {
-//       // this interface has only one ipv4 adress
-//       if (ifname == "Wi-Fi") {
-//         ip = iface.address
-//       }
-//     }
-//     ++alias;
-//   });
-// });
+    if (alias >= 1) {
+      // this single interface has multiple ipv4 addresses
+      console.log(ifname + ':' + alias, iface.address);
+    } else {
+      // this interface has only one ipv4 adress
+      if (ifname === "Wi-Fi") {
+        ip = iface.address
+      }
+    }
+    ++alias;
+  });
+});
 if (!ip) {
     ip = 'localhost'
 }

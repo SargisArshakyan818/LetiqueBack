@@ -1,0 +1,23 @@
+{
+  "users": ["user@email.com"],
+  "news": [
+    {
+      "title": "React Infinite Scroll Tutorial: With and Without a Library",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--a8DByl-W--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://res.cloudinary.com/practicaldev/image/fetch/s--1QH-jSvc--/c_imagga_scale%2Cf_auto%2Cfl_progressive%2Ch_420%2Cq_auto%2Cw_1000/https://dev-to-uploads.s3.amazonaws.com/i/ttz2sso79x6cl7chdjml.jpg",
+      "description": "Infinite scroll is a modern web & application design concept that loads content continuously as the user scrolling down the page. It changes the function of pagination.",
+      "link": "https://dev.to/syakirurahman/react-infinite-scroll-tutorial-with-and-without-a-library-1abg"
+    },
+    {
+      "title": "React App with Tailwind CSS / Emotion / Twin Macro",
+      "img": "https://img2.cliparto.com/pic/s/269354/6321839-adorable-and-amazing-cartoon-superhero-in-classic.jpg",
+      "description": "I'll explain how install and configure Tailwind CSS / Emotion and twin.macro in a Single Project of React to improve the way we use styles in our projects.",
+      "link": "https://dev.to/angelcodes/react-app-with-tailwind-css-emotion-twin-macro-3dpe"
+    },
+    {
+      "title": "Currying in JavaScript",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--UvT9Kb3S--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://res.cloudinary.com/practicaldev/image/fetch/s--vw8755uu--/c_imagga_scale%2Cf_auto%2Cfl_progressive%2Ch_420%2Cq_auto%2Cw_1000/https://dev-to-uploads.s3.amazonaws.com/i/viplwlivvz3xxahdycac.png",
+      "description": "Currying is a process in functional programming in which we can transform a function with multiple arguments into a sequence of nesting functions. It returns a new function that expects the next argument inline.",
+      "link": "https://dev.to/suprabhasupi/currying-in-javascript-1k3l"
+    }
+  ]
+}
