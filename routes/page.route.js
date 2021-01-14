@@ -1,6 +1,6 @@
 var multer  = require('multer');
 let path = require('path');
- 
+
 var storage =   multer.diskStorage({
     destination: function (req, file, callback) {
         callback(null, path.dirname(__dirname)+'/UploadFiles');
