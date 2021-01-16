@@ -11,7 +11,7 @@ exports.getAll = function (req,res) {
     })
 };
 exports.addItem = function (req,res) {
-    let title = new item({Name: req.body.Name, Description: req.body.Description, Usage: req.body.Usage, Contraindications: req.body.Contraindications, SoldOut: req.body.SoldOut,  Weight: req.body.Weight, Price: req.body.Price, Type: req.body.Type, Count: 0, Image: req.file.filename});
+    let title = new item({Name: req.body.Name, Description: req.body.Description, Usage: req.body.Usage, Contraindications: req.body.Contraindications, SoldOut: req.body.SoldOut, Weight: req.body.Weight, Strikethrough: req.body.Strikethrough, Price: req.body.Price, Type: req.body.Type, Count: 0, Image:'https://res.cloudinary.com/dm5jn4y7u/image/upload/v1610782549/' + req.file.filename});
     title.save(function (err,done) {
         if (err) return console.error(err);
         console.log("Document inserted succussfully!", done);
@@ -27,7 +27,7 @@ exports.removeItem = function(req,res){
     res.send('ok');
 };
 exports.changeItems = function(req,res){
-    item.findOneAndUpdate({_id: req.body.id},{Name: req.body.Name,Description: req.body.description, Usage: req.body.Usage, Contraindications: req.body.Contraindicatoins, SoldOut: req.body.SoldOut, Weight: req.body.Weight, Price: req.body.Price},(err,res)=>{
+    item.findOneAndUpdate({_id: req.body.id},{Name: req.body.Name,Description: req.body.description, Usage: req.body.Usage, Contraindications: req.body.Contraindicatoins, SoldOut: req.body.SoldOut, Weight: req.body.Weight, Strikethrough: req.body.Strikethrough, Price: req.body.Price},(err,res)=>{
         if(err) throw err;
         console.log(res);
     });
@@ -96,6 +96,36 @@ exports.sendUser = function (req,res) {
         subject: "Message from Letique Armenia",
         text: `Thank You ${req.body.name}`,
         html: template,
+    }, function (error, sending) {
+        if(error) {
+            console.log(error);
+            return res.status(400).send(false);
+        }else {
+            console.log(sending);
+            res.send(true)
+        }
+    });
+};
+
+
+exports.sendContact = function (req,res) {
+    let transporter = nodemailer.createTransport({
+        host:"smtp.gmail.com",
+        port:465,
+        secure:true,
+        tls:{
+            rejectUnauthorized:false
+        },
+        auth: {
+            user: "letique.armenia@gmail.com",
+            pass: "Letique2021"
+        }
+    });
+    transporter.sendMail({
+        from: "letique.armenia@gmail.com",
+        to: "letique.armenia@gmail.com",
+        subject: "Message from Letique Armenia",
+        text: `Name: ${req.body.name}, Surname: ${req.body.surname}, Email: ${req.body.email}, Phone: ${req.body.phone},Address:${req.body.address}, Message: ${req.body.message}`,
     }, function (error, sending) {
         if(error) {
             console.log(error);

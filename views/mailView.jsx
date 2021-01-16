@@ -91,7 +91,7 @@ const Newsletter = ({data}) => {
                             </h2>
                             <div class="section_one" style={Styles.section_one}>
                                 <img
-                                    src={'https://thumb.tildacdn.com/tild3435-6636-4231-b238-393138353562/-/cover/360x350/center/center/-/format/webp/IMG_7118.JPG'}
+                                    src={item.Image}
                                     style={Styles.img}
                                 />
                                 <div

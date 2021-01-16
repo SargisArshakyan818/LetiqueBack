@@ -16,6 +16,9 @@ let pageSchema = new mongoose.Schema({
     Weight: {
         type: String,
     },
+    Strikethrough: {
+        type: Number,
+    },
     Price: {
         type: Number,
         required: true,

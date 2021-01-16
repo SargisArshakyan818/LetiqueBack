@@ -32,3 +32,8 @@ module.exports = function() {
 //MongoDB Atlas
 //Login: Letique2021
 //Password: LetiqueDB2021
+
+
+//Cloudinary
+//Email: letique.armenia@gmail.com
+//Password: Letique_2021Armenia
