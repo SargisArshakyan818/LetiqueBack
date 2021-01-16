@@ -4,7 +4,7 @@
   "description": "Back for Letique shop",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "start:prod": "forever start -c nodemon index.js",
     "stop:prod": "forever stopall"
   },
